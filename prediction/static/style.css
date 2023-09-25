@@ -1,0 +1,248 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background-color: #F7ECEB;
+  margin: 0;
+  display: flex;
+  color: #545871;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.photo-field {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.photo-field figure {
+  height: 50px;
+  width: 50px;
+  background-color: #545871;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #F7ECEB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  background-color: #545871;
+  height: 100vh;
+  overflow: hidden;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  color: #F7ECEB;
+  position: fixed;
+}
+
+.content {
+  flex: 1;
+  scroll-behavior: smooth;
+}
+
+.menu > .logo {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.menu > .logo img {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+}
+.menu > .logo h1 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.menu > .options {
+  display: flex;
+  margin-top: 100px;
+  height: 250px;
+}
+.menu > .options .secuence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 50px;
+  position: relative;
+}
+.menu > .options .secuence .ball {
+  position: absolute;
+  background-color: #9597A6;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+.menu > .options .secuence::after {
+  position: absolute;
+  left: 50%;
+  content: "";
+  width: 2px;
+  height: 100%;
+  background-color: #9597A6;
+}
+.menu > .options .secuence .mark {
+  position: absolute;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 8px solid #FFFFFF;
+  background-color: #545871;
+  box-sizing: border-box;
+  z-index: 10;
+  top: calc(0% - 6px);
+  transition: all 0.3s ease-in-out;
+}
+
+.menu > .options > .secuence > .ball:nth-child(2) {
+  top: 0px;
+}
+.menu > .options > .secuence > .ball:nth-child(3) {
+  top: 75px;
+}
+.menu > .options > .secuence > .ball:nth-child(4) {
+  top: 150px;
+}
+.menu > .options > .secuence > .ball:nth-child(5) {
+  top: 225px;
+}
+
+.menu > .options ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 50px;
+  font-size: 22px;
+  color: #9597A6;
+}
+.menu > .options ul li a {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.menu > .options ul li.selected a {
+  color: #F7ECEB;
+}
+
+
+
+.content section {
+  height: 900px;
+}
+
+.content {
+  margin-left: 500px;
+  padding: 100px;
+  width: calc("100vw-$menu-width");
+  overflow-x: hidden;
+}
+.content section h1 {
+  font-family: "Literata", serif;
+  font-size: 40px;
+  margin: 0;
+  text-align: center;
+  margin-top:-50px;
+}
+.content section h1:last-child {
+  margin-bottom: 50px;
+}
+.content section form h1 {
+   margin-top:-100px;
+}
+.content section form {
+  display: flex;
+  flex-direction: column;
+  
+}
+.content section form .row {
+  display: flex;
+  flex-direction: row;
+  flex: 2;
+}
+.content section form .form-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 10px;
+  margin-right: 40px;
+}
+.content section form .form-field label {
+  margin: 12px 0px;
+}
+.content section form .form-field input {
+  border-radius: 4px;
+  border: 1px solid #f0dbd9;
+  padding: 16px 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #bd6259;
+}
+.content section form .form-field select {
+  border-radius: 4px;
+  border: 1px solid #f0dbd9;
+  padding: 16px 16px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #bd6259;
+}
+
+.content > section > form > .row {
+  flex-wrap: wrap;
+}
+
+.content > section > form > .row:last-child > .form-field:not(.city) {
+  max-width: 100px;
+}
+
+.content > section > form > .row > .form-field.city {
+  flex: 2;
+}
+
+
+
+@media only screen and (max-width: 1300px) {
+  .menu {
+    width: 400px;
+  }
+
+  .content {
+    margin-left: 400px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .menu {
+    width: 300px;
+  }
+  .menu .logo {
+    flex-direction: column;
+  }
+  .menu .options ul li {
+    font-size: 16px;
+  }
+
+  .content {
+    margin-left: 300px;
+  }
+}
+.content section form .submit{
+    width:200px;
+    height:50px;
+    color:white;
+    background:blue;
+    margin-left:200px;
+}

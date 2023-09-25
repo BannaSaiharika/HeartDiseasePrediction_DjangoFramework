@@ -1,0 +1,213 @@
+<html>
+<head>
+  <title>heart</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}" src="text/css">
+</head>
+<body>
+<!--https://dribbble.com/shots/4463832-Pawtastic-Dashboard-Screen/attachments/1012575?mode=media-->
+<div class="menu">
+  <div class="logo"><img src="{% static 'image.webp' %}"/>
+    <h1>HEART DISEASE</h1>
+  </div>
+  <div class="options">
+    <div class="secuence">
+      <div class="mark"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="bar"></div>
+    </div>
+    <ul>
+      <li class="selected"><a href="#step1">Home</a></li>
+      <li><a href="#step2">Prediction</a></li>
+      <li><a href="#step3">Symptoms</a></li>
+      <li><a href="#step4">Causes</a></li>
+    </ul>
+  </div>
+  <div class="image"></div>
+</div>
+<div class="content">
+  <section id="step1">
+     <h1>HOME</h1><br>
+	 <img src="{% static 'image.avif' %}" width="650px" height="300px">
+	 <p>Heart Disease is considered as one of the major causes of death throughout the world.As doctors deal
+	 with precious human life, it is very important for them to be right their results</p>
+	 <p>Thus we at Heart Disease, have developed a Machine Learning algorithm which can predict the 
+	 vulnerability of heart disease, given basic symptoms like age, gender, pulse rate, resting blood pressure,
+	 cholesterol, fasting blood sugar, resting electrocardographic results, exercise included angina
+	 ST depression ST segment the slope at peak exercise, number of major vessels coloured by fluoroscopy and maximum 
+	 heart rate acheived.</p>
+	 <p>The final result of this predction will be whether you have heart disease or not</p>
+	 
+  </section>
+  <section id="step2">
+        <h1>Prediction</h1>
+    <form action="{% url 'result' %}">
+            {% csrf_token %}
+      <div class="row">
+        <div class="form-field">
+          <label>Age</label>
+          <input type="text" name="age" placeholder="Enter your age"/>
+        </div>
+        <div class="form-field">
+          <label for="sex">Sex</label>
+          <select id="sex" name="sex">
+		   <option value="none" selected disabled hidden>Select an option</option>
+		   <option value="1">Male</option>
+		   <option value="0">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-field">
+          <label for="cp">Chest pain type</label>
+          <select id="cp" name="cp">
+		   <option value="none" selected disabled hidden>Select an option</option>
+		   <option value="0">Typical angina</option>
+		   <option value="1">Atypical angina</option>
+           <option value="2">Non-anginal pain</option>
+		   <option value="3">Asymptomatic</option>
+           </select>
+        </div>
+        <div class="form-field">
+          <label for="trestbps">Resting blood pressure</label>
+          <input type="number" id="trestbps" name="trestbps" placeholder="Enter your trestbps">
+        </div>
+       </div>
+	  <div class="row">
+      <div class="form-field">
+        <label for="chol">Cholesterol</label>
+        <input type="number" id="chol" name="chol" placeholder="Enter your cholesterol">
+      </div>
+	  
+        <div class="form-field city">
+          <label for="fbs">Fasting Blood sugar</label>
+          <select id="fbs" name="fbs">
+		   <option value="none" selected disabled hidden>Select an option</option>
+		   <option value="0">True</option>
+		   <option value="1">False</option>
+           </select>
+        </div>
+	   </div>
+	   <div class="row">
+        <div class="form-field">
+          <label for="restecg">Resting electrocardiographic results:</label><br>
+		  <select id="restecg" name="restecg">
+		  <option value="none" selected disabled hidden>Select an option</option>
+		  <option value="0">Normal</option>
+		  <option value="1">ST-T wave abnormality</option>
+		  <option value="2">Left ventricular hypertrophy</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="thalach">Maximum heart rate achieved:</label><br>
+          <input type="number" id="thalach" name="thalach" placeholder="Enter your thalach">
+        </div>
+      </div>
+	  <div class="row">
+        <div class="form-field city">
+          <label for="exang">Exercise induced angina:</label><br>
+		  <select id="exang" name="exang">
+		  <option value="none" selected disabled hidden>Select an option</option>
+		  <option value="0">Yes</option>
+		  <option value="1">No</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="oldpeak">ST depression induced by exercise</label><br>
+          <input type="text" id="oldpeak" name="oldpeak" placeholder="Enter your oldpeak">
+        </div>
+	   </div>
+     <div class="row">
+        <div class="form-field">
+          <label for="slope">Slope of peak exercise ST segment:</label><br>
+          <select id="slope" name="slope">
+		      <option value="none" selected disabled hidden>Select an option</option>
+          <option value="0">Upsloping</option>
+          <option value="1">Flat</option>
+          <option value="2">Downsloping</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="thal">Thallium stress test result:</label><br>
+          <select id="thal" name="thal">
+            <option value="none" selected disabled hidden>Select an option</option>
+           <option value="0">Normal</option>
+          <option value="1">Fixed defect</option>
+          <option value="2">Reversible defect</option>
+          </select>
+        </div>
+      </div>
+        <input class="submit" type="submit" value="submit">
+    </form>
+  </section>
+  <section id="step3">
+      <h1>Symptoms</h1>
+	  <h3>Coronary artery disease</h3>
+	  <p>Symptoms are Chest pain or discomfort(angina), Shortness of breathe or trouble breathing,
+	   Feeling dizzy or lightheaded, Heart palpitations, Feeling tired, Nausea, Stomach discomfort or vomting,
+	  Weakness</p>
+	  <h3>High Blood pressure</h3>
+	  <p>Symptoms are Severe headaches, Chest pain, Dizziness, Difficulty breathing, Nausea, Vomting,
+	  Blurred vision, Anxiety, Nosebleed, Fatigue or confusion, Irregular heartbeat, Blood in the urine.</p>
+	  <h3>Cardiac arrest</h3>
+	  <p>Symptoms are Sudden loss os consciousness, Lack of pulse, No breathing, Dizziness or chest pain
+	  it causes by an electrical malfunction in the heart that caused an irregular heartbeat(arrhythmia).</p>
+	  <h3>Stroke</h3>
+	  <p>Symptoms are Numbness or weakness in the face, arm, or leg.Confusion om trouble speaking or understanding
+	  speech, Trouble seeing in one or both eyes, Trouble walking, dizziness, or problems with balance.</p>
+	  
+  </section>
+  <section id="step4">
+    <h1>Causes</h1>
+	<h3>Cornary artery disease</h3>
+	<p>A buildup of fatty plaques in the arteries(atherosclerosis) is the most common cause of coronary
+	artery disease. Risk factors include a poor diet, lack of exercise, obesity and smoking. Healthy
+	lifestyle choices can help lower the risk of atherosclerosis.</p>
+	<h3>High Blood pressure</h3>
+	<p>Some factors that can increase the risk of high bp are Being overweight, Eating too much salt, Not getting
+	enough exercise, Smoking, Drinking too much alcohol or coffee, Having lot of stress, Being over 65.</p>
+	<h3>Cardiac arrest</h3>
+	<p>The main cause of cardiac arrest are Hypoglycemia, Anaphylaxis, Hyperthermia, Hypothermia, Tension pneumothrax,
+	Drug abuse, Smoking, Stress, Sedentary lifestyle.</p>
+	<h3>Stroke</h3>
+	<p>The risk factors are Being overweight or obese, Physical inactivity, Heavy or binge drinking, Use of illegal drugs 
+	such as cocaine and methamphetamine, Diabetes, High cholesterol.</p> 
+    
+  </section>
+</div>
+
+<script>
+const options = document.querySelectorAll('.menu>.options>ul>li')
+const content = document.querySelector('.content')
+const mark = document.querySelector('.mark')
+
+options.forEach((item, i) => (
+  item.addEventListener('click', () => {
+    options.forEach(e => e.classList.remove('selected'))
+    item.classList.add('selected')
+    mark.style = `top: calc(${i} * 30% - 6px)`
+  })
+))
+
+const isNear = i => {
+  const position = content.scrollTop
+  const step = content.offsetHeight - 50
+  return position >= i * step && position < (i + 1) * step
+}
+
+content.addEventListener('scroll', () => {
+  options.forEach(e => e.classList.remove('selected'))
+  const found = Array
+    .from(options)
+    .filter((_, i) => isNear(i))
+    [0]
+  found.classList.add('selected')
+  const index = Array.from(options).indexOf(found)
+  mark.style = `top: calc(${index} * 30% - 6px)`
+})
+</script>
+</body>
+</html>
